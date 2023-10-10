@@ -21,7 +21,7 @@ function version(){
 function help(){
     echo -e "\n\e[1mBash Rename \e[0m- A utility for renaming multiple files.\n\n\n"
 
-    echo -e "\e[1;32mFlags:\e[0m"
+    echo -e "\e[1;32mFlags:"
     echo -e " \e[1m--TUI \e[0m- If used, it will use whiptail for displaying Terminal/Text UI.\n"
     echo -e " \e[1m--help, -h \e[0m- Shows this menu."
     echo -e " \e[1m--version, -v \e[0m- Shows the current version of the tool.\n\n"
