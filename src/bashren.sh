@@ -46,8 +46,6 @@ then
     newfiles=($?)
     echo $newfiles
 
-    whiptail
-
     elif [[ $whiptailinstalled == "false" ]]
     then
     echo -e "\n\e[1;31mWhiptail is not installed. Cannot proceed."
