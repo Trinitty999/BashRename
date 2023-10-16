@@ -2,6 +2,10 @@
 
 newfiles=()
 
+filecount=0
+
+directory=""
+
 whiptailinstalled="false"
 
 if [[ $(which whiptail) == "whiptail not found" ]]
@@ -28,6 +32,15 @@ function help(){
     echo -e "\e[1;36mIf none of the flags are specified, it will use standard IO for communication with the user.\n"
 }
 
+main(){
+    for file in $1
+    do
+        mv "${file}" "$2[$3]"
+
+        filecount=$(($filecount+1))
+    done
+}
+
 if [[ $1 == "--help" || $1 == "-h" ]]
 then
 
@@ -43,11 +56,9 @@ then
     if [[ $whiptailinstalled == "true" ]]
     then
     whiptail --inputbox "Please enter the names of the files you want to rename. Whitespace separated. If there are any files that don't have their names specified, they will be named file1, file2, file3... respectively." 15 50 --title "test"
-    newfiles=($?)
-    echo $newfiles
+    echo $? >> /tmp/filenames
 
-    elif [[ $whiptailinstalled == "false" ]]
-    then
+    else
     echo -e "\n\e[1;31mWhiptail is not installed. Cannot proceed."
 
     fi
